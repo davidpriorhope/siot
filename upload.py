@@ -100,7 +100,7 @@ def upload():
 try:
     new_tab()
 except:
-    print('Tab with '+ str(new_sheet) + 'already exists.')
+    print('Tab named '+ str(new_sheet) + ' already exists.')
 
 compile()
 upload()
