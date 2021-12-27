@@ -9,6 +9,8 @@ import clean_assets
 import os
 import time
 
+print('test')
+
 #Collect data
 #sense
 
