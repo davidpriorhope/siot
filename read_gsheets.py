@@ -14,7 +14,6 @@ spreadsheet_id = '1IcC5hPXw8ORDOmnVjd2q9RmzlfLSnAmwbr5Rk7N6taQ' # The spreadshee
 
 
 def get_chart_data(range_names):
-
     result = service.spreadsheets().values().get(
         spreadsheetId=spreadsheet_id, range=range_names).execute()
     return result.get('values', [])
