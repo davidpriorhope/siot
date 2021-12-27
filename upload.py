@@ -97,6 +97,10 @@ def upload():
 
     print('All data successfully uploaded!')
 
-new_tab()
+try:
+    new_tab()
+except:
+    print('Tab with '+ str(new_sheet) + 'already exists.')
+
 compile()
 upload()
