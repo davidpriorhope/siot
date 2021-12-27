@@ -21,7 +21,7 @@ import time
         #this includes calculating the number of layers to cycle right now
     #build chart
 #clean_assets
-chart_build
+'''chart_build
 daily_chart_build
 print('Successfully generated charts')
 
@@ -29,6 +29,8 @@ print('Successfully generated charts')
 #push updates to github
 
 directory = 'docs/assets/'
+
+'''
 
 #files = os.listdir(directory)
 
