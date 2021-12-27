@@ -7,6 +7,7 @@ import chart_build
 import daily_chart_build
 import clean_assets
 import os
+import time
 
 #Collect data
 sense
@@ -33,5 +34,7 @@ files = os.listdir(directory)
 
 while len(files)<3:                 #this while loop is to stall out until all 3 graphs have been uploaded to the folder
     files =os.listdir(directory)
+    time.sleep(1)
+    print('1 loop')
 
 push_to_github
