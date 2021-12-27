@@ -5,6 +5,7 @@ import sense
 import upload
 import chart_build
 import daily_chart_build
+import time
 
 #Collect data
 sense
@@ -19,6 +20,8 @@ upload
     #build chart
 chart_build
 daily_chart_build
+
+time.sleep(5) #temporary sleep command waiting for image to be saved before doing stuff
 
 
 #push updates to github

@@ -1,5 +1,5 @@
 import datetime, time
-import requests, json
+import requests
 
 
 #setting up sampling frequency
