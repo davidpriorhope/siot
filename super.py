@@ -19,7 +19,7 @@ upload
     #Do processing (multi-dimensional linear regression)
         #this includes calculating the number of layers to cycle right now
     #build chart
-clean_assets
+#clean_assets
 chart_build
 daily_chart_build
 print('Successfully generated charts')
