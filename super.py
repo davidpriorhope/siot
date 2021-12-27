@@ -10,10 +10,10 @@ import os
 import time
 
 #Collect data
-sense
+#sense
 
 #Upload data
-upload
+#upload
 
 #Create website assets:
     #Read data 
@@ -30,9 +30,9 @@ print('Successfully generated charts')
 
 directory = 'docs/assets/'
 
-files = os.listdir(directory)
+#files = os.listdir(directory)
 
-print(len(files))
+#print(len(files))
 
 '''while len(files)<3:                 #this while loop is to stall out until all 3 graphs have been uploaded to the folder
     files =os.listdir(directory)
