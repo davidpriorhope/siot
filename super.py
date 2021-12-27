@@ -4,6 +4,7 @@ import push_to_github
 import sense
 import upload
 import chart_build
+import daily_chart_build
 
 #Collect data
 sense
@@ -17,6 +18,7 @@ upload
         #this includes calculating the number of layers to cycle right now
     #build chart
 chart_build
+daily_chart_build
 
 
 #push updates to github
