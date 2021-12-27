@@ -23,7 +23,7 @@ def actual_sleep(sampling_freq,start_time):
 
 #temperature calibration
 def body_temp_cal():
-    cal_start = input('Press enter to begin calibration: ')
+    cal_start = input('Press enter to begin calibration')
     cal_time_start = time.time()
     cal_duration = 5
     cal_list = []
