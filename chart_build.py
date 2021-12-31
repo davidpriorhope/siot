@@ -41,7 +41,7 @@ def create_plots(x_axis, x_axis_name, save_name):
                     xytext=(0,10), # distance from text to points (x,y)
                     ha='center') # horizontal alignment can be left, right or center
 
-    plt.savefig('docs/assets/' + save_name +'.png')
+    plt.savefig('docs/assets/' + save_name +'.png',bbox_inches='tight')
 
 for i in range(len(x_ax_names)):
     create_plots(master_list[i], x_ax_names[i], graph_save_names[i])
