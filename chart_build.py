@@ -1,11 +1,12 @@
 # importing the required module
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 day = open('temp_data/summary_day.txt', "r").read().splitlines()
-avg_temp = []
 avg_weather = list(map(float, open('temp_data/summary_avg_weather.txt', "r").read().splitlines()))
 no_layers = list(map(float, open('temp_data/summary_no_layers.txt', "r").read().splitlines()))
+avg_temp = []
 
 for i in open('temp_data/summary_avg_temp.txt', "r").read().splitlines():
     avg_temp.append(round(float(i),3))
@@ -14,17 +15,44 @@ for i in open('temp_data/summary_avg_temp.txt', "r").read().splitlines():
 master_list = [avg_weather, no_layers]
 x_ax_names = ['Weather (C)', 'Number of Layers']
 graph_save_names = ['weather_graph', 'layer_graph']
+temp_data_names = ['weather_correlation', 'layer_correlation']
+
+def write_data(my_list, save_name):
+    textfile = open('temp_data/' +save_name+".txt", "w")
+    for i in my_list:
+        textfile.write(str(i) + "\n")
+    textfile.close()
 
 
-def create_plots(x_axis, x_axis_name, save_name):
+def create_plots(x_axis, x_axis_name, graph_save_name,temp_save_name):
 
     sorted_x_axis, sorted_avg_temp, sorted_day = zip(*sorted(zip(x_axis, avg_temp, day)))
 
     plt.figure()
-    plt.plot(sorted_x_axis, sorted_avg_temp, 'bo-')
+
+    #Calculating trendline
+    z = np.polyfit(sorted_x_axis,sorted_avg_temp,1)
+    p = np.poly1d(z)
+    equat = "y=%.2fx+%.2f"%(z[0],z[1])
+
+    #getting R2
+    yhat = p(sorted_x_axis)
+    ybar = np.sum(sorted_avg_temp)/len(sorted_avg_temp)
+    ssreg = np.sum((yhat-ybar)**2)
+    sstot = np.sum((sorted_avg_temp - ybar)**2)
+    R2 = round(ssreg / sstot,2)
+    plt.plot([], [], ' ', label= "R2 of: " +str(R2))
+
+    #plotting trendline
+    plt.plot(sorted_x_axis,p(sorted_x_axis),"r--", label = "Trendline: "+equat)
+
+
+    #plotting sorted x axis v average body temperature
+    plt.plot(sorted_x_axis, sorted_avg_temp, 'bo-', label = "Body Temperature (%)")
     plt.xlabel(x_axis_name)
     plt.ylabel('Body Temperature (%)')
     plt.title('Body temperature v ' + x_axis_name)
+
 
     count = 0
 
@@ -38,7 +66,15 @@ def create_plots(x_axis, x_axis_name, save_name):
                     rotation = 45,
                     ha='center') # horizontal alignment can be left, right or center
 
-    plt.savefig('docs/assets/' + save_name +'.png',bbox_inches='tight')
+    plt.legend()
+
+    plt.savefig('docs/assets/' + graph_save_name +'.png',bbox_inches='tight')
+
+    save_list = [R2,equat]
+
+    write_data(save_list,temp_save_name)
+
+
 
 for i in range(len(x_ax_names)):
-    create_plots(master_list[i], x_ax_names[i], graph_save_names[i])
+    create_plots(master_list[i], x_ax_names[i], graph_save_names[i],temp_data_names[i])
