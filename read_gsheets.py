@@ -17,3 +17,17 @@ def get_chart_data(range_names):
     result = service.spreadsheets().values().get(
         spreadsheetId=spreadsheet_id, range=range_names).execute()
     return result.get('values', [])
+
+#now we will temporarily save the data locally on the system
+
+save_name_list = ['summary_day','summary_avg_temp','summary_avg_weather','summary_no_layers']
+
+for i in save_name_list:
+    textfile = open('temp_data/' +i+".txt", "w")
+    textfile.close()
+
+for i in get_chart_data('Summary!A:D'):
+    for j in range(len(i)):
+        textfile = open('temp_data/' +save_name_list[j]+".txt", "a")
+        textfile.write(str(i[j]) + "\n")
+        textfile.close()

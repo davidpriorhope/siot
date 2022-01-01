@@ -18,6 +18,11 @@ exec(open("./upload.py").read())
 
 #exec(open("./clean_assets.py").read())
 
+exec(open("./read_gsheets.py").read())
+
+exec(open("./data_processing.py").read())
+
+
 exec(open("./chart_build.py").read())
 exec(open("./daily_chart_build.py").read())
 print('Generated charts')
