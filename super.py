@@ -2,10 +2,10 @@
 
 
 #sense
-#exec(open("./sense.py").read())
+exec(open("./sense.py").read())
 
 #upload data
-#exec(open("./upload.py").read())
+exec(open("./upload.py").read())
 
 #reading summary data from google sheets
 exec(open("./read_gsheets.py").read())
