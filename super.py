@@ -16,8 +16,8 @@ exec(open("./data_processing.py").read())
 #building charts + getting equation + R2
 exec(open("./chart_build.py").read())
 
-#building daily chart - if carousel is implemented, this will replace this function
-exec(open("./daily_chart_build.py").read())
+#building new charts
+exec(open("./append_new_chart.py").read())
 print('Generated charts')
 
 #updating HTML file
