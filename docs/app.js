@@ -2,11 +2,11 @@ var button = document.querySelector('.button')
 var inputValue = document.querySelector('.inputValue')
 var calc_text = document.querySelector('.calc_text');
 
-const coef_weather = 0.11190115566318562;
+const coef_weather = 0.00960831374440356;
 
-const coef_layer = 0.16621495235450123;
+const coef_layer = 0.15987046080995587;
 
-const int = -0.7498596814911822;
+const int = 0.722891460785692;
 
 const score = 1.0;
 

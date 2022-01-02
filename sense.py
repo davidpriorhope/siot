@@ -47,7 +47,7 @@ cal_temp = body_temp_cal()
 
 
 #commence timer
-workout_duration = 0.05                             #this is based off article
+workout_duration = 22                               #this is based off article
 actual_workout_duration = 3+ workout_duration*60    #converting to seconds and accounting for countdown
 cycle = input("Ready to pedal? (y) ")
 time_start = time.time()
