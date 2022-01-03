@@ -21,7 +21,7 @@ exec(open("./append_new_chart.py").read())
 print('Generated charts')
 
 #updating HTML file
-#exec(open("./update_html.py").read())
+exec(open("./update_html.py").read())
 
 #pushing updated files to github
 exec(open("./push_to_github.py").read())
