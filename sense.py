@@ -81,7 +81,11 @@ def read():
         time_list.append(time_now)
         
         #getting temperature
-        temp_now = read_temp.read_temp()
+        try:
+            temp_now = read_temp.read_temp()
+        except:
+            print('Thermometer has disconnected, trying again in '+ str(samp_freq)+ ' seconds')
+        
         temp_list_raw.append(temp_now)
         temp_perc = temp_now/cal_temp
         temp_list_perc.append(temp_perc)
