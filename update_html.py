@@ -1,3 +1,7 @@
+'''Welcome to my updating HTML code
+
+Here the JavaScript is updated by rewriting the file and HTML is parsed using BeautifulSoup and then rewritten with updated files'''
+
 #update Java script variables
 coef_weather, coef_layers, intercept, score = open('temp_data/ML_data.txt', "r").readlines()
 

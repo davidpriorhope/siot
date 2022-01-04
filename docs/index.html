@@ -11,8 +11,18 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"/>
  </head>
  <body>
-  <img alt="Whoops :/" src="assets/weather_graph.png" style="width:49%;"/>
-  <img alt="Whoops :/" src="assets/layer_graph.png" style="width:49%;"/>
+  <div>
+   <img alt="Whoops :/" src="assets/weather_graph.png" style="width:49%;"/>
+   <img alt="Whoops :/" src="assets/layer_graph.png" style="width:49%;"/>
+  </div>
+  <div>
+   <p>
+    Welcome internet adventurer! This is the culmination of my IoT project as part of my Design Engineering MEng. As a cyclist I struggle to decide how many layers I should wear each morning. Too few and I will be cold, too many and I will sweat a lot. To resolve this problem, for a week I collected my body temperature during a 22 minute cycle and correlated it to the weather temperature and the number of layers I am wearing. With this data I conducted supervised Machine Learning to produce a multivariate linear regression model. Now you can just search up your city and assuming your body behaves the same as mine you will get the optimal number of clothing layers and avoid future embarrassment! If you want to do this yourself, check out my code
+    <a href="https://github.com/davidpriorhope/siot/">
+     here.
+    </a>
+   </p>
+  </div>
   <div class="input">
    <input class="inputValue" placeholder="Enter city for number of suggested layers for cycling" type="text"/>
    <input class="button" type="submit" value="Submit"/>
