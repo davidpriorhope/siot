@@ -1,65 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>OpenAPI</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    </head>
-    <body>
-        <img src="assets/weather_graph.png" alt="Whoops :/">
-        <img src="assets/layer_graph.png" alt="Whoops :/">
-        
-        <div class="input">
-            <input type="text" class="inputValue" placeholder="Enter city for number of suggested layers for cycling">
-            <input type="submit" value="Submit" class="button">
-        </div>
-
-        <div class="display">
-            <p class="calc_text"></p>
-        </div>
-
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-          
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <img src="assets/latest_graph.png" alt="Los Angeles" style="width:100%;">
-              </div>
-          
-              <div class="item">
-                <img src="assets/layer_graph.png" alt="Chicago" style="width:100%;">
-              </div>
-          
-              <div class="item">
-                <img src="assets/weather_graph.png" alt="New York" style="width:100%;">
-              </div>
-
-            
-            </div>
-          
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-              <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-        <script src="app.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    </body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+  <title>
+   Cycle Layers
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <img alt="Whoops :/" src="assets/weather_graph.png" style="width:49%;"/>
+  <img alt="Whoops :/" src="assets/layer_graph.png" style="width:49%;"/>
+  <div class="input">
+   <input class="inputValue" placeholder="Enter city for number of suggested layers for cycling" type="text"/>
+   <input class="button" type="submit" value="Submit"/>
+  </div>
+  <div class="display">
+   <p class="calc_text">
+   </p>
+  </div>
+  <div class="carousel slide" data-ride="carousel" id="myCarousel">
+   <!-- Wrapper for slides -->
+   <div class="carousel-inner">
+    <div class="item active">
+     <img src="docs/assets/cycle/31.12.21.png" style="width:100%;"/>
+    </div>
+    <div class="item">
+     <img src="docs/assets/cycle/01.01.22.png" style="width:100%;"/>
+    </div>
+    <div class="item">
+     <img src="docs/assets/cycle/02.01.22.png" style="width:100%;"/>
+    </div>
+    <div class="item">
+     <img src="docs/assets/cycle/03.01.22.png" style="width:100%;"/>
+    </div>
+   </div>
+   <!-- Left and right controls -->
+   <a class="left carousel-control" data-slide="prev" href="#myCarousel">
+    <span class="glyphicon glyphicon-chevron-left">
+    </span>
+    <span class="sr-only">
+     Previous
+    </span>
+   </a>
+   <a class="right carousel-control" data-slide="next" href="#myCarousel">
+    <span class="glyphicon glyphicon-chevron-right">
+    </span>
+    <span class="sr-only">
+     Next
+    </span>
+   </a>
+  </div>
+  <script src="app.js">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+  </script>
+ </body>
 </html>

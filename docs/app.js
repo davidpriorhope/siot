@@ -19,7 +19,7 @@ button.addEventListener('click',function(){
 
         var optimal_layers = Math.round((1-coef_weather*tempValue-int)/coef_layer);
 
-        calc_text.innerHTML = 'For ' + inputValue.value + ' the temperature is ' + tempValue + '&deg;C it is recommended to wear: ' + optimal_layers +' layers. The R-squared from machine learning is '+score;
+        calc_text.innerHTML = 'For ' + inputValue.value + ' the temperature is ' + tempValue + '&deg;C it is recommended to wear: ' + optimal_layers +' layers. The R-squared from machine learning is '+ Math.round(score*100)/100;
 
     })
 
