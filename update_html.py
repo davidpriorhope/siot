@@ -15,7 +15,7 @@ with open('docs/app.js', "w") as f:
             line = 'const int = '+ str(float(intercept))+';\n'
 
         elif "const score = " in line:
-            line = "const score = "+str(float(score))+ ';\n'
+            line = "const score = "+str(round(float(score),2))+ ';\n'
 
         f.write(line)
 
@@ -51,9 +51,9 @@ for img in image_tags_list:
 
 
 #getting a list of cycle files
-path = 'docs/assets/cycle'
+path = 'assets/cycle'
 
-cycle_files = os.listdir(path)
+cycle_files = os.listdir("docs/"+path)
 
 #creating a list of cycle files which are not already in the HTML
 cycle_files_to_add = []
