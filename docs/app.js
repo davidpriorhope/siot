@@ -2,13 +2,13 @@ var button = document.querySelector('.button')
 var inputValue = document.querySelector('.inputValue')
 var calc_text = document.querySelector('.calc_text');
 
-const coef_weather = -0.0005515359850265903;
+const coef_weather = 0.0012932862700872436;
 
-const coef_layer = 0.06789060123891683;
+const coef_layer = 0.03405451444538988;
 
-const int = 1.058203868005206;
+const int = 1.0837365450404075;
 
-const score = 0.29;
+const score = 0.08;
 
 
 button.addEventListener('click',function(){
