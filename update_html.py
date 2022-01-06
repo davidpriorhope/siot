@@ -3,7 +3,10 @@
 Here the JavaScript is updated by rewriting the file and HTML is parsed using BeautifulSoup and then rewritten with updated files'''
 
 #update Java script variables
+
 coef_weather, coef_layers, intercept, score = open('temp_data/ML_data.txt', "r").readlines()
+
+Ci, Cw, Cl, CW, C2, CL, quad_int, r2_quad = list(map(float, open('temp_data/ML_data_quad.txt', 'r').read().splitlines()))
 
 lines = open('docs/app.js', "r").readlines()
 
@@ -11,15 +14,39 @@ with open('docs/app.js', "w") as f:
     for line in lines:
         if "const coef_weather" in line:
             line = "const coef_weather = " + str(float(coef_weather))+ ';\n'
-
+        
         elif "const coef_layer = " in line:
             line = "const coef_layer = " + str(float(coef_layers))+ ';\n'
         
-        elif "const int" in line:
-            line = 'const int = '+ str(float(intercept))+';\n'
+        elif "const lin_int" in line:
+            line = 'const lin_int = '+ str(float(intercept))+';\n'
 
-        elif "const score = " in line:
-            line = "const score = "+str(round(float(score),2))+ ';\n'
+        elif "const lin_score = " in line:
+            line = "const lin_score = "+str(round(float(score),2))+ ';\n'
+
+        elif "const Ci" in line:
+            line = "const Ci = "+str(float(Ci))+ ';\n'
+
+        elif "const Cw" in line:
+            line = "const Cw = "+str(float(Cw))+ ';\n'
+
+        elif "const Cl" in line:
+            line = "const Cl = "+str(float(Cl))+ ';\n'
+
+        elif "const CW" in line:
+            line = "const CW = "+str(float(CW))+ ';\n'
+
+        elif "const C2" in line:
+            line = "const C2 = "+str(float(C2))+ ';\n'
+
+        elif "const CL" in line:
+            line = "const CL = "+str(float(CL))+ ';\n'
+
+        elif "const quad_int" in line:
+            line = "const quad_int = "+str(float(quad_int))+ ';\n'
+
+        elif "const quad_score" in line:
+            line = "const quad_score = "+str(float(r2_quad))+ ';\n'
 
         f.write(line)
 
