@@ -105,3 +105,44 @@ ax.set_zlabel('Body Temperature (%)');
 ax.scatter3D(no_layers, avg_weather, avg_temp)
 
 plt.savefig('docs/assets/quad_regr.png')
+
+
+#Constructing graphs of linear regression and quadratic regression
+
+coef_weather, coef_layers, intercept, score = list(map(float, open('temp_data/ML_data.txt', "r").readlines()))
+
+fig = plt.figure()
+
+desired_temp = 1.2
+
+wea_range = np.linspace(-15,35,40)
+
+a = Cl2
+
+b = Clw*wea_range + Cl
+
+c = Ci + Cw*wea_range + Cw2*wea_range**2+quad_int-desired_temp
+
+L1 = (-b+((b**2)-4*a*c)**0.5)/(2*a)
+
+L2 = (-b-((b**2)-4*a*c)**0.5)/(2*a)
+
+lin = (desired_temp-coef_weather*wea_range-intercept)/coef_layers
+
+plt.plot(wea_range, L1, label='Quad Reg 1')
+
+plt.plot(wea_range,L2, label='Quad Reg 2')
+
+plt.plot(wea_range,lin, label='Linear Reg')
+
+plt.scatter(avg_weather,no_layers)
+
+plt.legend()
+
+plt.xlabel('Weather')
+
+plt.ylabel('Number of Layers')
+
+plt.title('Regression for body temperature of '+ str(desired_temp)+'x optimal')
+
+plt.savefig('docs/assets/reg_charts.png')
