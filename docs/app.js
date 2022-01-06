@@ -46,7 +46,7 @@ button.addEventListener('click',function(){
             var score = quad_score
 
         } else{
-            var optimal_layers = Math.round((desired_temp-coef_weather*tempValue-int)/coef_layer);
+            var optimal_layers = Math.round((desired_temp-coef_weather*tempValue-lin_int)/coef_layer);
             var score = lin_score
         }
 
