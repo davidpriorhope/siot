@@ -113,7 +113,7 @@ coef_weather, coef_layers, intercept, score = list(map(float, open('temp_data/ML
 
 fig = plt.figure()
 
-desired_temp = 1
+desired_temp = 1.2
 
 wea_range = np.linspace(-15,35,40)
 
@@ -135,7 +135,7 @@ plt.plot(wea_range,L2, label='Quad Reg 2')
 
 plt.plot(wea_range,lin, label='Linear Reg')
 
-plt.scatter(avg_weather,no_layers)
+plt.scatter(avg_weather,no_layers, label = 'Data')
 
 plt.legend()
 
