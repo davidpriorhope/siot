@@ -2,7 +2,7 @@ var button = document.querySelector('.button')
 var inputValue = document.querySelector('.inputValue')
 var calc_text = document.querySelector('.calc_text');
 
-const desired_temp = 1;
+const desired_temp = 1.2;
 
 const coef_weather = 0.002011415933145354;
 
