@@ -50,7 +50,7 @@ button.addEventListener('click',function(){
             var score = lin_score
         }
 
-        calc_text.innerHTML = 'For ' + inputValue.value + ' the temperature is ' + tempValue + '&deg;C it is recommended to wear: ' + optimal_layers +' layers. The R-squared from machine learning is '+ score;
+        calc_text.innerHTML = 'For ' + inputValue.value + ' the temperature is ' + tempValue + '&deg;C it is recommended to wear: ' + optimal_layers +' layers. The R-squared from machine learning is '+ Math.round(score*100)/100;
 
     })
 
