@@ -78,3 +78,30 @@ def create_plots(x_axis, x_axis_name, graph_save_name,temp_save_name):
 
 for i in range(len(x_ax_names)):
     create_plots(master_list[i], x_ax_names[i], graph_save_names[i],temp_data_names[i])
+
+
+#constructing 3D plot of quadratic regression
+
+Ci, Cw, Cl, Cw2, Clw, Cl2, quad_int, r2_quad = list(map(float, open('temp_data/ML_data_quad.txt', 'r').read().splitlines()))
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+
+L = np.linspace(min(no_layers), max(no_layers), len(no_layers))
+wea = np.linspace(min(avg_weather), max(avg_weather), len(avg_weather))
+
+lay, WEA = np.meshgrid(L, wea)
+
+
+bt = Ci + WEA*Cw +lay*Cl + (lay**2)*Cl2 + Clw*WEA*lay + Cw2*(WEA**2) + quad_int
+
+ax.plot_wireframe(lay, WEA, bt, color='black')
+ax.set_title('Wireframe Plot of Quadratic Regression');
+
+ax.set_ylabel('Weather (C)')
+ax.set_xlabel('Number of Layers')
+ax.set_zlabel('Body Temperature (%)');
+
+ax.scatter3D(no_layers, avg_weather, avg_temp)
+
+plt.savefig('docs/assets/quad_regr.png')

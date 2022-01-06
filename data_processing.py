@@ -6,6 +6,7 @@
 '''
 from sklearn import linear_model
 import numpy as np
+from sklearn.preprocessing import PolynomialFeatures
 
 #extracting data sets from temporary files
 avg_temp = list(map(float, open('temp_data/summary_avg_temp.txt', "r").read().splitlines()))        #dependent variable
@@ -27,7 +28,7 @@ intercept = float(regr.intercept_)
 
 score = regr.score(X,y)
 
-#writing out useful variables to temporary file
+#writing out useful linear variables to temporary file
 
 ML_data = [coef_weather,coef_layers,intercept,score]
 
@@ -36,14 +37,23 @@ for i in ML_data:
     textfile.write(str(i) + "\n")
 textfile.close()
 
-#Testing predicting number of layers:
-'''print('Score: ' +str(score))
 
-current_weather = 11
-desired_temp_per = 1
-test_no_layers = 2
-suggested_no_layers = int((desired_temp_per-coef_weather*current_weather-intercept)/coef_layers)
+#Now we will fit a quadratic regression
 
-print('At ' + str(current_weather) + ' degrees, wearing ' + str(test_no_layers) + ' layers, it is estimated your body will reach: '+ str(float(current_weather*coef_weather+test_no_layers*coef_layers+intercept)) + ' % of its optimal temperature')
+poly = PolynomialFeatures(degree=2)
+poly_variables = poly.fit_transform(X)
 
-print('For outdoor temperature of '+str(current_weather)+ ' you should wear '+ str(suggested_no_layers)+' layers to be at your desired temperature.')'''
+quad_regr = linear_model.LinearRegression()
+quad_model = quad_regr.fit(poly_variables, y)
+
+quad_score = quad_model.score(poly_variables, y)
+
+quad_coef = quad_model.coef_.tolist()[0]
+
+quad_data = quad_coef + [float(quad_regr.intercept_),float(quad_score)]
+
+quad_file = open('temp_data/ML_data_quad.txt', "w")
+
+for i in quad_data:
+    quad_file.write(str(i) + "\n")
+quad_file.close()
